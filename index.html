@@ -205,12 +205,6 @@ footer {
     text-align: left;
 }
 
-.extra-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 15px;
-}
-
 .extra-card {
     background: rgba(15, 23, 42, 0.85);
     border-radius: 3px 18px;
@@ -378,6 +372,7 @@ footer {
 
 }
 /**/
+
    
 .extra-grid {
     display: grid;
@@ -397,7 +392,8 @@ footer {
 }
 
 .extra-card:hover {
-    transform: translateY(-5px); /* Efeito visual ao passar o mouse */
+    background-color: rgb(48, 211, 194);
+    transform: translateY(-8px); /* Efeito visual ao passar o mouse */
 }
 
 .extra-card h3 {
@@ -426,27 +422,52 @@ footer {
 
 
 @media (max-width: 600px) {
+    html, body {
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+    }
+
     header {
+        margin: 0 auto;
+        width: 100%;
         height: auto; /* Importante para não cortar o conteúdo no celular */
         gap: 15px;
         display: flex;
         flex-direction: column; /* Alinha os itens verticalmente */
         align-items: center;
         text-align: center;
+        justify-content: center;
         padding: 50px 20px;
+       
     }
-
+    header div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+        
+    }
     h3 {
         font-size: 1.4rem;
     }
 
     .extra-card {
-        width: 90%;
+        width: 100%;
         
     }
-    .section_ {
-        max-width: 95%;
+    .extra-grid {
+        /* background-color: red; */
+        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+        max-width: 100%;
     }
+    .section_ {
+        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+        max-width: 100%;
+    }
+
     .edu-card.single {
         display: flex;
         flex-direction: column;
@@ -459,23 +480,50 @@ footer {
     .edu-card.single img {
         width: 100%;
         height: auto;
-        margin: 20px 0;
+        margin: 0px;
         border: none;
+        padding: 2px;
     }
 
     .carousel{
-        width: 90%;
-        /* background-color: blue; */
+        width: 100%;
+        height: 420px;
+        margin: 0px;
+        padding: 0px;
+
+        align-items: center;
+        justify-content: center;
+  
 
     }
+
 
     .carousel img {
         width: 100%;
-        min-height: auto;
+        height: 100%;
+        margin: 0px;
+        border: none;
+        padding: 0px;
+        align-self: center;
+
+        margin: 0;
+
     }
 
+    .project div .carousel{
+        width: 100%;
+        height: 220px !important;
+        margin: 0px;
+        padding: 2px;
+    }
+
+
+
+    .edu-card{
+        gap: 15px;
+    }
     .edu-card.single h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .exp-card h3 {
@@ -483,8 +531,8 @@ footer {
     }
 
     .section_ {
-        height: auto; /* Permite que a seção cresça conforme o conteúdo */
-        padding: 40px 15px;
+        height: 100%; /* Permite que a seção cresça conforme o conteúdo */
+        padding: 5px;
         max-width: 100%;
     }
 
@@ -497,8 +545,58 @@ footer {
         display: flex;
         flex-direction: column;
         padding: 20px;
-        gap: 20px;
+        gap: 5px;
     }
+    .project-card div {
+        gap: 10px;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab:hover {
+        border-color: var(--primary);
+
+    }
+
+    .project {
+        padding: 20px;
+        display: none;
+        animation: fadeSlide 0.6s ease;
+        height: auto;
+        min-height: none;
+        gap: 5px;
+    }
+
+    .project h3 {
+        font-size: 1rem;
+    }
+
+    .project h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .project p{
+        font-size: 0.9rem;
+        margin: 5px;
+        padding: 0px 5px;
+    }
+
+    .project-card {
+        padding: 5px;
+        margin: 0px;
+        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+        flex-direction: column;
+        width: 100%;
+    }
+    .project.carousel {
+        width: 100%;
+        height: 900px;
+        margin: 0px;
+        background-color: red;
+    }
+
 }
 
 </style>
@@ -661,7 +759,7 @@ footer {
         <img src="https://www.ufc.br/images/_images/a_universidade/identidade_visual/brasao/brasao2_vertical_cor_300dpi.png" class="active">
         <img src="https://media.licdn.com/dms/image/v2/D4D22AQE9sTQT7tDe8g/feedshare-shrink_800/B4DZYnXUBxHIAg-/0/1744417157413?e=1772668800&v=beta&t=9w-9U_OTk3USycarV9kELMLra2kD_gig09XFurYA9_w" >
         <!-- <img src="https://media.licdn.com/dms/image/v2/D4D22AQHuu7iHhAzp4A/feedshare-shrink_2048_1536/B4DZdCpJXJHAAw-/0/1749169773942?e=1772668800&v=beta&t=pZ7RdofQP_2jvIAYBNatn0GMzp7hTAzG0tIzxI7fnHo"  > -->
-        <img src="https://media.licdn.com/dms/image/v2/D4D22AQHnLSDatsBpbg/feedshare-shrink_800/B4DZdCpJXcGYAg-/0/1749169773699?e=1772668800&v=beta&t=CTBgUUlCjT5q_iJsyDTD0NkWck5eScM0vqNMFXBGje8" style="margin-top:-230px;">
+        <img src="https://media.licdn.com/dms/image/v2/D4D22AQHnLSDatsBpbg/feedshare-shrink_800/B4DZdCpJXcGYAg-/0/1749169773699?e=1772668800&v=beta&t=CTBgUUlCjT5q_iJsyDTD0NkWck5eScM0vqNMFXBGje8" style="margin-top:-200px;">
      </div>
     </div>
 
