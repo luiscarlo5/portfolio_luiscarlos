@@ -1,954 +1,1218 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- isso é necessario para que fique responsivo no cell da mesma maneira que é no computador -->
-<title>Portfólio - Luis Carlos</title>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- isso é necessario para que fique responsivo no cell da mesma maneira que é no computador -->
+    <title>Portfólio - Luis Carlos</title>
 
-<style>
-:root {
-    --bg: #020617;
-    --bg-card: #0f172a;
-    --primary: #38bdf8;
-    --text: #e5e7eb;
-    --muted: #94a3b8;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background: radial-gradient(circle at top, #002e51, #000);
-    color: var(--text);
-}
-
-/* HEADER */
-header {
-    min-height:100vh;
-    width: 90%;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 30px;
-  
-}
-
-header img {
-    width: auto;
-    height: 80%;
-    border-radius: 2px 30px 30px 30px;
-
-    transition: transform 0.4s;
-}
-
-header img:hover {
-    transform: scale(0.95);
-}
-
-header h1{
-
-    font-size: 2.4rem;
-    color: #ffffff;
-}
-header h2 {
-    font: 2.2 sans-serif;
-    color: #9dccff;
-    
-}
-
-header p {
-    margin-top: 10px;
-    color: #dae6e9;
-    max-width: 650px;
-}
-
-.tab {
-    padding: 12px 20px;
-    background: var(--bg-card);
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 0.3s;
-    border: 1px solid transparent;
-}
-
-.tab:hover {
-    border-color: var(--primary);
-}
-
-.tab.active {
-    background: var(--primary);
-    color: #000;
-    font-weight: bold;
-}
-
-/* CONTEÚDO */
-.projects {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-.project {
-    padding: 20px;
-    display: none;
-    animation: fadeSlide 0.6s ease;
-}
-
-.project.active {
-    display: block;
-}
-
-@keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    <style>
+    :root {
+        --bg: #020617;
+        --bg-card: #0f172a;
+        --primary: #38bdf8;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.project-card {
-    align-content: left;
-    background: rgba(15, 23, 42, 0.85);
-    border-radius: 5px 16px ;
-    border: 1px solid #Addbe6; 
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 40px rgba(56,189,248,0.08);
-    align-items: center;
-}
-
-.project h2 {
-    font-family: Tahoma, sans-serif;
-    color: var(--primary);
-}
-
-.project .periodo {
-    color: var(--muted);
-    margin-bottom: 20px;
-}
-
-
-
-.project h3 {
-    margin-top: 15px;
-    color: #7dd3fc;
-}
-
-/* CARROSSEL */
-.carousel {
-    position: relative;
-    height: 440px;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.carousel img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.6s;
-}
-
-.carousel img.active {
-    opacity: 1;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: var(--muted);
-}
-
-/* RESPONSIVO */
-@media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        text-align: left;
-    }   
-    .project-card {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Para telas menores que 600px (celulares e tablets pequenos) */
-
-/* SEÇÕES EXTRAS */
-.section_ {
-    min-height: 100vh;
-    max-width: 1300px;
-    margin: auto;
-    padding: 30px 20px 20px;
-    align-content: top;
-    display: block;
-}
-
-.section_ h2 {
-    font-family: Georgia, serif;
-    color: #Addbe6;
-    margin-bottom: 5px;
-    font-size: 1.8rem;
-    text-align: left;
-}
-
-.extra-card {
-    background: rgba(15, 23, 42, 0.85);
-    border-radius: 3px 18px;
-    padding: 30px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 35px rgba(56,189,248,0.08);
-    transition: transform 0.3s;
-}
-
-.edu-card {
-    max-width: 1000px;
-    background:  #7dd4fc5a;
-    border-radius: 3px;
-    padding: 1px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 35px rgba(56,189,248,0.08);
-    transition: transform 0.3s;
-}
-
-.extra-card:hover {
-    transform: translateY(-6px);
-}
-.edu-card:hover {
-    transform: translateY(-6px);
-}
-
-
-.extra-card h3 {
-    color: #7dd3fc;
-    margin-bottom: 1px;
-}
-
-.extra-card p {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
-             "Segoe UI", Roboto, Oxygen, Ubuntu,
-             Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-.extra-card.single {
-    min-height: 80vh;
-    max-width: 100%;
-    margin: 0 auto 2px;
-    
-}
-.single {
-    min-height: auto;
-    align-items: center;
-}
-.edu-card.single {
-    max-width: 100%;
-    margin: 0 auto 2px;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* duas colunas iguais */
-}
-
-.titulo {    
-    display: grid;
-    gap: 0px;
-    margin: 0px;
-    padding: 0px;
-    /* height: 400px;
-    width: 300px; */
-    align-items: center;
-    grid-template-columns: 1fr; /* duas colunas iguais */
-    justify-items: left;
-    align-self: center;
-}
-
-.titulo h3,
-.titulo p{
-    margin: 10px;
-    padding: 0px;
-    color: #000;
-
-}
-
-.titulo h3 {
-    color: #000;
-    font-size: 3rem;
-}
-
-.edu-card.single img {
-
-   border-left: #38bdf8 1px solid;
-    margin: 0px;
-    padding: 0px;
-    min-height: auto;
-    width: 100%;
-    margin: 0 auto 20px;
-    padding-left: 20px;
-}
-
-/* EXPERIÊNCIAS */
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.exp-tab {
-    padding: 10px 22px;
-    background: var(--bg-card);
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 0.3s;
-    border: 1px solid transparent;
-}
-
-.exp-tab:hover {
-    border-color: var(--primary);
-}
-
-.exp-tab.active {
-    background: var(--primary);
-    color: #000;
-    font-weight: bold;
-}
-
-.exp-content {
-    display: none;
-    animation: fadeSlide 0.6s ease;
-}
-
-.exp-content.active {
-    display: block;
-}
-
-.exp-card {
-    background: rgba(15, 23, 42, 0.85);
-    border-radius: 16px;
-    padding: 30px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 30px rgba(56,189,248,0.08);
-}
-
-.exp-card h3 {
-    font-size: 1.6rem;
-    color: #7dd3fc;
-}
-
-.exp-periodo {
-    color: var(--muted);
-    margin-bottom: 10px;
-}
-
-.nav-geral {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1px;
-}
-
-.nav-geral a{
-    text-decoration: none;
-    color: #38bdf8;
-    margin: 5px;
-    padding: 15px 15px;
-    border-radius: 5px;
-    align-content: center;
-
-}
-/**/
-
-   
-.extra-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr)); /* Cria colunas automáticas */
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.extra-card {
-    display: block;
-    background: #f9f9f9;
-    border-left: 4px solid #0056b3; /* Um detalhe azul para passar seriedade */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
- transition: transform 0.3s ease;
-}
-
-.extra-card:hover {
-    background-color: rgb(48, 211, 194);
-    transform: translateY(-8px); /* Efeito visual ao passar o mouse */
-}
-
-.extra-card h3 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.extra-card p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
-} */
-
-
-/*experiencia*/
-.experiencia-content{
-    display: block;
-    flex-wrap: wrap;
-    grid-template-columns: 1fr;
-    height: 1000px;
-    max-width: 100%;
-    max-height: 1000px;
-    background-color: red;
-}
-
-
-@media (max-width: 600px) {
-    html, body {
-        width: 100%;
-
+    * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
-    h2{
-         color: #7dd3fc;
+    body {
+        background: radial-gradient(circle at top, #002e51, #000);
+        color: var(--text);
     }
 
+    /* HEADER */
     header {
-        margin: 0 auto;
-        width: 100%;
-        height: auto; /* Importante para não cortar o conteúdo no celular */
-        gap: 15px;
+        min-height:100vh;
+        width: 90%;
         display: flex;
-        flex-direction: column; /* Alinha os itens verticalmente */
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        padding: 50px 20px;
-       
-    }
-    header div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        margin: 0 auto;
-        
-    }
-    h3 {
-        font-size: 1.4rem;
-    }
-
-    .extra-card {
-        width: 100%;
-        
-    }
-    .extra-grid {
-        /* background-color: red; */
-        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
-        max-width: 100%;
-    }
-    .section_ {
-        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
-        max-width: 100%;
-    }
-
-    .edu-card.single {
-        display: flex;
-        flex-direction: column;
-        height: 600px;
-        
-       
-        
-    }
-
-    .edu-card.single img {
-        width: 100%;
-        height: auto;
-        margin: 0px;
-        border: none;
-        padding: 2px;
-    }
-
-    .carousel{
-        width: 100%;
-        height: 420px;
-        margin: 0px;
-        padding: 0px;
-
-        align-items: center;
-        justify-content: center;
-  
-
-    }
-
-
-    .carousel img {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        border: none;
-        padding: 0px;
         align-self: center;
-
-        margin: 0;
-
-    }
-
-    .project div .carousel{
-        width: 100%;
-        height: 220px !important;
-        margin: 0px;
-        padding: 2px;
-    }
-
-
-
-    .edu-card{
-        gap: 15px;
-    }
-    .edu-card.single h3 {
-        font-size: 1.1rem;
-    }
-
-    .exp-card h3 {
-        font-size: 1.2rem;
-    }
-
-    .section_ {
-        height: 100%; /* Permite que a seção cresça conforme o conteúdo */
-        padding: 5px;
-        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+    
     }
 
     header img {
-        height: 180px; /* Reduz a imagem para caber melhor */
         width: auto;
+        height: 80%;
+        border-radius: 2px 30px 30px 30px;
+
+        transition: transform 0.4s;
     }
 
-    .project-card {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        gap: 5px;
-    }
-    .project-card div {
-        gap: 10px;
+    header img:hover {
+        transform: scale(0.95);
     }
 
-    .tabs {
-        flex-direction: column;
+    header h1{
+
+        font-size: 2.4rem;
+        color: #ffffff;
+    }
+    header h2 {
+        font: 2.2 sans-serif;
+        color: #9dccff;
+        
+    }
+
+    header p {
+        margin-top: 10px;
+        color: #dae6e9;
+        max-width: 650px;
+    }
+
+    .tab {
+        padding: 12px 20px;
+        background: var(--bg-card);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: 0.3s;
+        border: 1px solid transparent;
     }
 
     .tab:hover {
         border-color: var(--primary);
-
     }
 
-    .project {
+    .tab.active {
+        background: var(--primary);
+        color: #000;
+        font-weight: bold;
+    }
+
+    /* CONTEÚDO */
+    .projects {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .project,
+    .project2 {
         padding: 20px;
         display: none;
         animation: fadeSlide 0.6s ease;
-        height: auto;
-        min-height: none;
-        gap: 5px;
     }
 
-    .project h3 {
-        font-size: 1rem;
+    .project.active ,
+    .project2.active {
+        display: block;
     }
 
-    .project h2 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    .project p{
-        font-size: 0.9rem;
-        margin: 5px;
-        padding: 0px 5px;
+    @keyframes fadeSlide {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .project-card {
-        padding: 5px;
-        margin: 0px;
-        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
-        flex-direction: column;
-        width: 100%;
+        align-content: left;
+        background: rgba(15, 23, 42, 0.85);
+        border-radius: 5px 16px ;
+        border: 1px solid  rgb(48, 141, 233); 
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 40px rgba(56,189,248,0.08);
+        align-items: center;
     }
-    .project.carousel {
+
+    .project h2 ,
+    .project2 h2 {
+        font-family: Tahoma, sans-serif;
+        color: var(--primary);
+    }
+
+    .project .periodo ,
+    .project2 .periodo {
+        color: var(--muted);
+        margin-bottom: 20px;
+    }
+
+
+
+    .project h3 ,
+    .project2 h3 {
+        margin-top: 8px;
+        color: #7dd3fc;
+    }
+
+    /* CARROSSEL */
+    .carousel {
+        position: relative;
+        height: 440px;
+        overflow: hidden;
+        border-radius: 4px;
+        align-items: center;
+        /* justify-items: center; */
+        /* align-content: center; */
+        /* background-color: red; */
+    }
+
+    .carousel img {
+        position: absolute;
         width: 100%;
-        height: 900px;
+        height: auto;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.6s;
+        margin-top: 50px;
+    }
+
+    .carousel img.active {
+        opacity: 1;
+    }
+
+    .carousel-inicio {
+        width: 60% !important;
+        height: 500px;
+        align-self: center;
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: var(--muted);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+        header {
+            flex-direction: column;
+            text-align: left;
+        }   
+        .project-card {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Para telas menores que 600px (celulares e tablets pequenos) */
+
+    /* SEÇÕES EXTRAS */
+    .section_ {
+        min-height: 100vh;
+        max-width: 1300px;
+        margin: auto;
+        padding: 10px 5px 20px;
+        align-content: top;
+        display: block;
+        display: flex;
+        align-items: center;
+        align-content: center ;
+        /* border-bottom: solid 2px rgb(48, 141, 233); */
+        border-top: solid 1px rgb(48, 141, 233);
+        flex-direction: column;
+        padding-bottom: 40px;
+        /* padding-top: 40px; */
+    }
+
+    .section_ h2 {
+        font-family: Georgia, serif;
+        color: #7dd3fc;
+        margin-bottom: 5px;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .extra-card {
+        background: rgba(15, 23, 42, 0.85);
+        border-radius: 3px 18px;
+        padding: 30px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 35px rgba(56,189,248,0.08);
+        transition: transform 0.3s;
+    }
+
+    .edu-card {
+        max-width: 1000px;
+        background:  #7dfcfa5a;
+        border-radius: 7px;
+        padding: 1px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 35px rgba(56,189,248,0.08);
+        transition: transform 0.3s;
+        padding: 10px 50px;
+        margin: 40 40px;
+          margin-top:100px;
+    }
+
+    .extra-card:hover {
+        transform: translateY(-6px);
+    }
+    .edu-card:hover {
+        transform: translateY(-6px);
+    }
+
+
+    .extra-card h3 {
+        color: #7dd3fc;
+        margin-bottom: 1px;
+        font-size: 1.5rem;
+    }
+
+    .extra-card p {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Oxygen, Ubuntu,
+                Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+        color: var(--muted);
+        line-height: 1.6;
+    }
+
+    .extra-card.single {
+        min-height: 80vh;
+        max-width: 100%;
+        margin: 0 auto 2px;
+      
+        
+    }
+    .single {
+        min-height: auto;
+        align-items: center;
+    }
+    .edu-card.single {
+        max-width: 100%;
+        margin: 0 auto 2px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* duas colunas iguais */
+    }
+
+    .titulo {    
+        display: grid;
+        gap: 0px;
+        margin: 5px;
+        padding: 5px;
+        /* height: 400px;
+        width: 300px; */
+        align-items: center;
+        grid-template-columns: 1fr; /* duas colunas iguais */
+        justify-items: left;
+        align-self: center;
+    }
+
+    .titulo h3,
+    .titulo p{
+        margin: 5px;
+        padding: 0px;
+        color: #ffffff;
+
+    }
+
+    .titulo h3 {
+        color: #e7e7e7;
+        font-size: 3rem;
+    }
+
+    .edu-card.single img {
+
+    
         margin: 0px;
+        padding: 0px;
+        min-height: auto;
+        width: 100%;
+        margin: 0 auto 20px;
+        padding-left: 20px;
+    }
+
+    .titulo{
+        color: azure;
+        border-right: #38bdf8 5px solid;
+    }
+
+    /* EXPERIÊNCIAS */
+    .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .exp-tab {
+        padding: 10px 22px;
+        background: var(--bg-card);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: 0.3s;
+        border: 1px solid transparent;
+    }
+
+    .exp-tab:hover {
+        border-color: var(--primary);
+    }
+
+    .exp-tab.active {
+        background: var(--primary);
+        color: #000;
+        font-weight: bold;
+    }
+
+    .exp-content {
+        
+        display: none;
+        animation: fadeSlide 0.6s ease;
+    }
+
+    .exp-content.active {
+        display: block;
+    }
+
+    .exp-card {
+        background: rgba(15, 23, 42, 0.85);
+        border-radius: 16px;
+        padding: 16px;
+        margin-bottom: 8px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 30px rgba(56,189,248,0.08);
+    }
+
+    .exp-card h3 {
+        font-size: 1.3rem;
+        color: #7dd3fc;
+    }
+
+    .exp-periodo {
+        color: var(--muted);
+        margin-bottom: 10px;
+    }
+
+    .nav-geral {
+        margin-top: 20px;
+        display: flex;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        gap: 1px;
+    }
+
+    .nav-geral a{
+        text-decoration: none;
+        color: #38bdf8;
+        margin: 5px;
+        padding: 15px 15px;
+        border-radius: 5px;
+        align-content: center;
+    }
+    /**/
+
+    
+    .extra-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Cria colunas automáticas */
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .extra-card {
+        display: block;
+        background: #f9f9f9;
+        border-left: 4px solid #0056b3; /* Um detalhe azul para passar seriedade */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .extra-card:hover {
+        background-color: rgb(48, 211, 194);
+        transform: translateY(-8px); /* Efeito visual ao passar o mouse */
+    }
+
+    .extra-card h3 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.1rem;
+    }
+
+    .extra-card p {
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.4;
+    } */
+
+
+    /*experiencia*/
+    .experiencia-content{
+        display: block;
+        flex-wrap: wrap;
+        grid-template-columns: 1fr;
+        height: 1000px;
+        max-width: 100%;
+        max-height: 1000px;
         background-color: red;
     }
 
+    .formacao-highlights {
+        margin-top: 10px;
+        list-style: none;
+        padding: 10;
+    }
+
+    .formacao-highlights li {
+        margin-bottom: 12px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .formacao-highlights li::before {
+        content: "▹";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+
+
+    .btn-social {
+        padding: 15px 16px;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color) !important;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-social:hover {
+        background: var(--primary-color);
+        color: white !important;
+    }
+
+
+
+
+/* Container principal */
+.extra-card-contato-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 
-</style>
-</head>
+/* Card */
+.extra-card-contato {
+    background: linear-gradient(145deg, #111827, #1f2937);
+    padding: 10px;
+    border-radius: 16px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
 
-<body>
+/* Hover no card */
+.extra-card-contato:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
 
-<header>
-    <img src="eu.png" alt="Foto de Perfil">
-    <div>
-        <h1>Luis Carlos R. dos Anjos</h1>
-        <h2>Desenvolvedor de Software</h2>
-        <!-- <p>
-            Desenvolvedor de Software graduando em Engenharia de Computação, com atuação focada em em Desenvolvimento de Software, especialmente nas áreas de
-            Dados, além de experiência em projetos de Desenvolvimento Web, Inteligência Computacional Aplicada, IoT e Engenharia de Dados. Possuo conhecimento prático com
-            Python, SQL, PySpark, Excel, bancos de dados, Delta Lake e tratamento de dados. Atuo com visualização de dados, metadados, predição e classificação, utilizando ferramentas como PyTorch, Pandas e Scikit-learn aplicada em Visão Computaciona
-        </p>
-         -->
-        <p>
-            Desenvolvedor de Software e graduando em Engenharia de Computação, com foco em desenvolvimento Full Stack e arquitetura de sistemas. Experiência na criação de aplicações escaláveis, APIs robustas e interfaces responsivas orientadas à performance. Especialista em modelagem de dados e boas práticas de desenvolvimento, focado em entregar soluções eficientes e preparadas para crescimento.
-        </p>
-       <div class="nav-geral" >
+/* Título do card */
+.extra-card-contato h3 {
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+
+/* Botão social */
+.btn-social {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #2563eb;
+    color: white;
+}
+
+/* Hover botão */
+.btn-social:hover {
+    background-color: #38bdf8;
+    color: #111827;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+    @media (max-width: 600px) {
+        .nav-geral{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Coluna única para telas pequenas */
+        }
+        .nav-geral a{
+            font-size: 0.7rem;
+        }
+        html, body {
+            width: 100%;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin: 0 auto;
+            width: 100%;
+            height: auto; /* Importante para não cortar o conteúdo no celular */
+            gap: 15px;
+            display: flex;
+            flex-direction: column; /* Alinha os itens verticalmente */
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            padding: 50px 20px;
+        
+        }
+        header div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            margin: 0 auto;
+            
+        }
+        h3 {
+            font-size: 1.4rem;
+        }
+
+        .extra-card {
+            width: 100%;
+            
+        }
+        .extra-grid {
+            /* background-color: red; */
+            grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+            max-width: 100%;
+        }
+        .section_ {
+            grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+            max-width: 100%;
+        }
+
+        .edu-card.single {
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+            
+        
+            
+        }
+
+        .edu-card.single img {
+            width: 100%;
+            height: auto;
+            margin: 0px;
+            border: none;
+            padding: 2px;
+        }
+
+        .carousel{
+            width: 100%;
+            height: 420px;
+            margin: 0px;
+            padding: 0px;
+
+            align-items: center;
+            justify-content: center;
+    
+
+        }
+
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            border: none;
+            padding: 0px;
+            align-self: center;
+
+            margin: 0;
+
+        }
+
+        .project div .carousel,
+        .project2 div .carousel{
+            width: 100%;
+            height: 220px !important;
+            margin: 0px;
+            padding: 2px;
+        }
+
+
+
+        .edu-card{
+            gap: 15px;
+        }
+        .edu-card.single h3 {
+            font-size: 1.1rem;
+        }
+
+        .exp-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .section_ {
+            height: 100%; /* Permite que a seção cresça conforme o conteúdo */
+            padding: 5px;
+            max-width: 100%;
+        }
+
+        header img {
+            height: 180px; /* Reduz a imagem para caber melhor */
+            width: auto;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 5px;
+        }
+        .project-card div {
+            gap: 10px;
+        }
+
+        .tabs {
+            flex-direction: column;
+        }
+
+        .tab:hover {
+            border-color: var(--primary);
+
+        }
+
+        .project {
+            padding: 20px;
+            display: none;
+            animation: fadeSlide 0.6s ease;
+            height: auto;
+            min-height: none;
+            gap: 5px;
+        }
+
+        .project h3 ,
+        .project2 h3 {
+            font-size: 1rem;
+        }
+
+        .project h2 ,
+        .project2 h2 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .project p,
+        .project2 p{
+            font-size: 0.9rem;
+            margin: 5px;
+            padding: 0px 5px;
+        }
+
+        .project-card {
+            padding: 5px;
+            margin: 0px;
+            grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+            flex-direction: column;
+            width: 100%;
+        }
+        .project.carousel {
+            width: 100%;
+            height: 900px;
+            margin: 0px;
+            background-color: red;
+        }
+
+        .carousel-inicio {
+            width: 100% !important;
+        }
+
+        .carousel-inicio img {
+            width: 100% !important;
+            height: auto !important;
+            border: #adbbc5 solid 1px;
+        }
+
+        .titulo{
+            border: none;
+        }
+
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+    <header>
+        <img src="eu.png" alt="Foto de Perfil">
+        <div>
+            <h1>Luis Carlos R. dos Anjos</h1>
+            <h2>Desenvolvedor de Software</h2>
+
+            <p>
+               Desenvolvedor de Software de 23 anos, com foco em Desenvolvimento Full Stack e diversos trabalhos em Dados.
+            Experiência com APIs REST Full, Análise de dados, Ciência e Engenharia de Dados.</p>
+        <div class="nav-geral" >
             <a href="#experiencia-ufc" class="nav-link tab">Experiências UFC</a>
             <a href="#experiencia" class="nav-link tab">Experiências Profissionais</a>
-            <a href="#habilidades" class="nav-link tab">Habilidade</a>
+            <a href="#habilidades" class="nav-link tab">Habilidades Técnicas</a>
             <a href="#educacao" class="nav-link tab">Educação</a>
-            <a href="#projetos-web" class="nav-link tab">Projetos Web</a>
             <a href="#certificacoes" class="nav-link tab">Certificações</a>
+            <a href="#projetos-web" class="nav-link tab">Projetos Web</a>
+            <a href="#projetos-dados" class="nav-link tab">Projetos de Dados</a>
+        </div>
+         <div class="nav-geral">
+
+            <a href="https://www.linkedin.com/in/luis-carlos-eng-comp/" target="_blank" class="btn-social tab">Linkedin → </a> 
+            <a href="https://wa.me/5585988438013" target="_blank" class="btn-social tab">WhatsApp → </a>
+            <a href="mailto:luiscarlosengcomp@gmail.com" target="_blank" class="btn-social tab">Email →</a>
+        </div>
+        
+    </header>
+
+
+    <section class="section_" id="experiencia-ufc">
+        <h2>Experiências Acadêmicas</h2>
+
+        <div class="exp-card">
+            <h3>Pesquisador e Desenvolvedor Python em Visão Computacional (Bolsista CNPq)</h3>
+            <div class="exp-periodo">UFC (PICME) | Agosto 2022 - Março 2024</div>
+            <p>
+                Pesquisa e desenvolvimento científico focado em saúde digital, atuando na construção de fluxos de pré-processamento de imagens médicas. 
+                Implementação de modelos de <strong>Deep Learning</strong> e redes neurais baseadas em grafos para o auxílio diagnóstico e classificação automatizada de lesões dermatológicas.
+            </p>
+        </div>
+        <div class="exp-card">
+            <h3>Desenvolvedor Python & Pesquisador</h3>
+            <div class="exp-periodo">Projeto GESTUS & UFC | Março 2025 - Atual</div>
+            <p>
+                Engenharia de soluções voltadas à acessibilidade através de <strong>Visão Computacional</strong> avançada e processamento paralelo. 
+                Desenvolvimento de interfaces desktop robustas com Qt, integrando algoritmos de rastreamento ocular e reconhecimento gestual para otimizar a interação homem-máquina em contextos de mobilidade reduzida.
+            </p>
         </div>
 
-    </div>
-    
-</header>
-
-
-<section class="section_" id="experiencia-ufc">
-    <h2>Experiências Acadêmicas</h2>
-
-     <div class="exp-card">
-        <h3>Pesquisador e Desenvolvedor Python em Visão Computacional (Bolsista CNPq)</h3>
-        <div class="exp-periodo">UFC (PICME) | Agosto 2022 - Março 2024</div>
-        <p>
-            Pesquisa e desenvolvimento científico focado em saúde digital, atuando na construção de fluxos de pré-processamento de imagens médicas. 
-            Implementação de modelos de <strong>Deep Learning</strong> e redes neurais baseadas em grafos para o auxílio diagnóstico e classificação automatizada de lesões dermatológicas.
-        </p>
-    </div>
-    <div class="exp-card">
-        <h3>Desenvolvedor Python & Pesquisador</h3>
-        <div class="exp-periodo">Projeto GESTUS & UFC | Março 2025 - Atual</div>
-        <p>
-            Engenharia de soluções voltadas à acessibilidade através de <strong>Visão Computacional</strong> avançada e processamento paralelo. 
-            Desenvolvimento de interfaces desktop robustas com Qt, integrando algoritmos de rastreamento ocular e reconhecimento gestual para otimizar a interação homem-máquina em contextos de mobilidade reduzida.
-        </p>
-    </div>
-   
-</section>
-<section class="section_" id="experiencia">
-    <h2>Experiências de Trabalho</h2>
- <div class="experiencia-content">
-       
-    <div class="exp-content active">
-    
-    <div class="exp-card">
-        <h3>Desenvolvedor FullStack (Python)</h3>
-        <div class="exp-periodo">BioValor & LESC (UFC) | Setembro 2025 - Atual</div>
-        <p>
-            Arquitetura e desenvolvimento de APIs escaláveis utilizando <strong>FastAPI</strong> e <strong>PostgreSQL</strong> para o monitoramento crítico de métricas ambientais em tempo real. 
-            Responsável pela modelagem de esquemas de dados complexos e pela criação de dashboards dinâmicos que transformam dados brutos em insights estratégicos para a gestão de qualidade.
-        </p>
-    </div>
-
-    <div class="exp-card">
-        <h3>Engenheiro de Dados</h3>
-        <div class="exp-periodo">Martins Engenharias | Junho 2025 - Dezembro 2025</div>
-       <p>
-            Concepção e implementação de pipelines ETL/ELT de alto volume utilizando <strong>PySpark</strong> sob a arquitetura Medalhão (Bronze, Silver, Gold). 
-            Especialista na conteinerização de microsserviços com Docker e orquestração em ambiente <strong>AWS</strong> para a viabilização de plataformas de descoberta de metadados (Amundsen).
-        </p>
-    </div>
-
-    <div class="exp-card">
-        <h3>Analista de Dados Excel (Freelancer)</h3>
-        <div class="exp-periodo">Restaurante DiRaí | Junho 2025 - Novembro 2025</div>
-         <p>
-            Reestruturação da inteligência financeira e operacional através da análise avançada de grandes volumes de dados. 
-            Implementação de sistemas automatizados em Excel para controle rigoroso de estoque e fluxo de caixa, resultando em maior previsibilidade e redução de perdas operacionais.
-        </p>
-    </div>
-
-    <div class="exp-content active">
-   
-</div>
-
-  
-
-    
-
-</div>
-    </div>
-</section>
-
-
+        <div class="carousel carousel-inicio">
+                    <img src="vs_saude.png" class="active" alt="Projeto de classificador de imagem médica">
+                    <img src="gestus.png" alt="Projeto GESTUS">
+                    <img src="projeto_gestus.png" alt="Projeto GESTUS">
+                    <img src="eu_na_smd.png" alt="foto minha no smd">
                     
+                </div>
+    
+    </section>
 
-</div>
-<!-- HABILIDADES -->
-<section class="section_" id="habilidades">
-    <h2>Habilidades & Core Stack</h2>
-
-    <div class="extra-grid">
-        <div class="extra-card">
-            <i class="fas fa-brain"></i>
-            <h3>Machine & Deep Learning</h3>
-            <p>Scikit-learn, PyTorch, Modelos em Grafos, Visão Computacional (MediaPipe/OpenCV).</p>
+    <section class="section_" id="experiencia">
+        <h2>Experiências de Trabalho</h2>
+    <div class="experiencia-content">
+        
+        <div class="exp-content active">
+        
+        <div class="exp-card">
+            <h3>Desenvolvedor FullStack (Python)</h3>
+            <div class="exp-periodo">BioValor & LESC (UFC) | Setembro 2025 - Atual</div>
+            <p>
+                Arquitetura e desenvolvimento de APIs escaláveis utilizando <strong>FastAPI</strong> e <strong>PostgreSQL</strong> para o monitoramento crítico de métricas ambientais em tempo real. 
+                Responsável pela modelagem de esquemas de dados complexos e pela criação de dashboards dinâmicos que transformam dados brutos em insights estratégicos para a gestão de qualidade.
+            </p>
         </div>
 
-        <div class="extra-card">
-            <i class="fas fa-database"></i>
-            <h3>Engenharia de Dados</h3>
-            <p>PySpark (Arquitetura Medalhão), ETL/ELT, Lakehouse, Databricks, Amundsen.</p>
+        <div class="exp-card">
+            <h3>Engenheiro de Dados</h3>
+            <div class="exp-periodo">Martins Engenharias | Junho 2025 - Dezembro 2025</div>
+        <p>
+                Concepção e implementação de pipelines ETL/ELT de alto volume utilizando <strong>PySpark</strong> sob a arquitetura Medalhão (Bronze, Silver, Gold). 
+                Especialista na conteinerização de microsserviços com Docker e orquestração em ambiente <strong>AWS</strong> para a viabilização de plataformas de descoberta de metadados (Amundsen).
+            </p>
         </div>
 
-        <div class="extra-card">
-            <i class="fas fa-server"></i>
-            <h3>Back-end & APIs</h3>
-            <p>Python (FastAPI, Flask), Node.js, RESTful APIs, JWT, Threads/Concorrência.</p>
+        <div class="exp-card">
+            <h3>Analista de Dados Excel (Freelancer)</h3>
+            <div class="exp-periodo">Restaurante DiRaí | Junho 2025 - Novembro 2025</div>
+            <p>
+                Reestruturação da inteligência financeira e operacional através da análise avançada de grandes volumes de dados. 
+                Implementação de sistemas automatizados em Excel para controle rigoroso de estoque e fluxo de caixa, resultando em maior previsibilidade e redução de perdas operacionais.
+            </p>
         </div>
 
-        <div class="extra-card">
-            <i class="fas fa-cloud"></i>
-            <h3>Cloud & DevOps</h3>
-            <p>AWS (EC2, S3), Docker, Git/GitLab CI-CD, Linux, Shell Scripting.</p>
-        </div>
-
-        <div class="extra-card">
-            <i class="fas fa-table"></i>
-            <h3>Bancos de Dados</h3>
-            <p>PostgreSQL, MySQL, SQL Alchemy (ORM), Migrations, Otimização de Queries.</p>
-        </div>
-
-        <div class="extra-card">
-            <i class="fas fa-desktop"></i>
-            <h3>Interfaces & UX</h3>
-            <p>React, Streamlit, Qt (Desktop), Tailwind CSS, Dashboards de Dados.</p>
-        </div>
+        <div class="exp-content active">
+    
     </div>
-</section>
 
-<!-- EDUCAÇÃO -->
-<section class="section_" id="educacao">
-    <h2>Educação</h2>
+    
 
-    <div class="edu-card single">
-        <div class="titulo">
-            <h3>Engenharia de Computação </br> Universidade Federal do Ceará (UFC) </h3>
-            <p>Graduando em Engenharia de Computação pela Universidade Federal do Ceará (UFC – Fortaleza), com sólida formação em desenvolvimento de software, algoritmos, estruturas de dados e integração de sistemas. A formação combina base teórica robusta com aplicação prática em projetos de programação, sistemas web, bancos de dados e sistemas computacionais complexos, preparando o profissional para atuar no desenvolvimento de soluções escaláveis, eficientes e orientadas a boas práticas de engenharia.</p>
+        
+
+    </div>
+        </div>
+    </section>             
+
+
+    <!-- HABILIDADES -->
+    <section class="section_" id="habilidades">
+        <h2>Habilidades & Core Stack</h2>
+
+        <div class="extra-grid">
+            <div class="extra-card">
+                <i class="fas fa-brain"></i>
+                <h3>Machine & Deep Learning</h3>
+                <p>Scikit-learn, PyTorch, Modelos em Grafos, Visão Computacional (MediaPipe/OpenCV).</p>
+            </div>
+
+            <div class="extra-card">
+                <i class="fas fa-database"></i>
+                <h3>Engenharia de Dados</h3>
+                <p>PySpark (Arquitetura Medalhão), ETL/ELT, Lakehouse, Databricks, Amundsen.</p>
+            </div>
+
+            <div class="extra-card">
+                <i class="fas fa-server"></i>
+                <h3>Back-end & APIs</h3>
+                <p>Python (FastAPI, Flask), Node.js, RESTful APIs, JWT, Threads/Concorrência.</p>
+            </div>
+
+            <div class="extra-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud & DevOps</h3>
+                <p>AWS (EC2, S3), Docker, Git/GitLab CI-CD, Linux, Shell Scripting.</p>
+            </div>
+
+            <div class="extra-card">
+                <i class="fas fa-table"></i>
+                <h3>Bancos de Dados</h3>
+                <p>PostgreSQL, MySQL, SQL Alchemy (ORM), Migrations, Otimização de Queries.</p>
+            </div>
+
+            <div class="extra-card">
+                <i class="fas fa-desktop"></i>
+                <h3>Interfaces & UX</h3>
+                <p>React, Streamlit, Qt (Desktop), Tailwind CSS, Dashboards de Dados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCAÇÃO -->
+    <section class="section_" id="educacao">
+        <h2>Educação</h2>
+
+        <div class="edu-card single">
+            <div class="titulo">
+                <h3>Engenharia de Computação </br> Universidade Federal do Ceará (UFC) </h3>
+                <ul class="formacao-highlights">
+                    <li><strong>Núcleo Tecnológico:</strong> Algoritmos de alta complexidade, Estruturas de Dados e Sistemas Operacionais.</li>
+                    <li><strong>Engenharia de Software:</strong> Metodologias ágeis e padrões de projetos.</li>
+                    <li><strong>Infraestrutura e Dados:</strong> Redes de computadores, sistemas distribuídos e modelagem de bancos de dados relacionais e NoSQL.</li>
+                </ul>
+            </div>
+            <div class="carousel">
+            <img src="https://www.ufc.br/images/_images/a_universidade/identidade_visual/brasao/brasao2_vertical_cor_300dpi.png" class="active">
+            <img src="https://media.licdn.com/dms/image/v2/D4D22AQE9sTQT7tDe8g/feedshare-shrink_800/B4DZYnXUBxHIAg-/0/1744417157413?e=1772668800&v=beta&t=9w-9U_OTk3USycarV9kELMLra2kD_gig09XFurYA9_w" >
+            <!-- <img src="https://media.licdn.com/dms/image/v2/D4D22AQHuu7iHhAzp4A/feedshare-shrink_2048_1536/B4DZdCpJXJHAAw-/0/1749169773942?e=1772668800&v=beta&t=pZ7RdofQP_2jvIAYBNatn0GMzp7hTAzG0tIzxI7fnHo"  > -->
+            <img src="https://media.licdn.com/dms/image/v2/D4D22AQHnLSDatsBpbg/feedshare-shrink_800/B4DZdCpJXcGYAg-/0/1749169773699?e=1772668800&v=beta&t=CTBgUUlCjT5q_iJsyDTD0NkWck5eScM0vqNMFXBGje8" style="margin-top:-200px;">
+        </div>
+        </div>
+
+    
+    </section>
+
+    <!-- CERTIFICAÇÕES -->
+    <section class="section_" id="certificacoes">
+        <h2>Certificações</h2>
+
+        <div class="extra-grid">
+            <div class="extra-card">
+                <h3>Desenvolvimento Full Stack (196 hr - 2024) </h3>
+                <p>Geração Tech, IEL e Fiec. </br>→ React, NodeJS, MySQL, Insomnia, Jtest, Express .</p>
+            </div>
+
+            <div class="extra-card">
+                <h3>Scrum e Metodologias Ágeis (2024) </h3>
+                <p>UFCA e Mandacaru.dev. </br> → Planejamento, Sprints, Backlog, Scrum e entrega contínua</p>
+            </div>
+
+        
+            <div class="extra-card">
+                <h3>Ciência de Dados (2025)</h3>
+                <p>UECE e Intituto Atlântico.  </br>→ Python, visualização de dados com python, processamento de dados, banco de dados, introdução a machine learning e mineração de dados.</p>
+            </div>
+
+
+            <div class="extra-card">
+                <h3>AI/BI for Data Analytics (2025)</h3>
+                <p>Databricks. </br> → introdução a ferramentas de vizualição de dados e IA da plataforma databricks </p>
+            </div>
+
+            <div class="extra-card">
+                <h3>Fundamentals of Deep Learning (2025)</h3>
+                <p>UFC e NVIDIA.  </br>→ Fundamentos de Deep Learning com Pytorch sobre Redes Neuras, Processamento de Linguagem natural e Visão Computacional (2025)</p>
+            </div>
+
             
+            <div class="extra-card">
+                <h3>Computação em Nuvem (480hr - 2025)</h3>
+                <p>IFCE e IREDE.  </br>→ Fundamentos de computação em Nuvem, AWS, EC2, S3, Lambda, RDS, IAM, etc.</p>
+            </div>
         </div>
-        <div class="carousel">
-        <img src="https://www.ufc.br/images/_images/a_universidade/identidade_visual/brasao/brasao2_vertical_cor_300dpi.png" class="active">
-        <img src="https://media.licdn.com/dms/image/v2/D4D22AQE9sTQT7tDe8g/feedshare-shrink_800/B4DZYnXUBxHIAg-/0/1744417157413?e=1772668800&v=beta&t=9w-9U_OTk3USycarV9kELMLra2kD_gig09XFurYA9_w" >
-        <!-- <img src="https://media.licdn.com/dms/image/v2/D4D22AQHuu7iHhAzp4A/feedshare-shrink_2048_1536/B4DZdCpJXJHAAw-/0/1749169773942?e=1772668800&v=beta&t=pZ7RdofQP_2jvIAYBNatn0GMzp7hTAzG0tIzxI7fnHo"  > -->
-        <img src="https://media.licdn.com/dms/image/v2/D4D22AQHnLSDatsBpbg/feedshare-shrink_800/B4DZdCpJXcGYAg-/0/1749169773699?e=1772668800&v=beta&t=CTBgUUlCjT5q_iJsyDTD0NkWck5eScM0vqNMFXBGje8" style="margin-top:-200px;">
-     </div>
+    </section>
+
+    <section class="section_" id="projetos-web">
+        <h2>Projetos Web</h2>
+    <div class="tabs">
+        <!-- <div class="tab active" onclick="showProject(0)">Projeto 1</div> -->
+        <div class="tab" onclick="showProject(0)">Loja Digital (Front-end)</div>
+        <div class="tab" onclick="showProject(1)">Loja Digital (Back-end)</div>
+        <div class="tab" onclick="showProject(2)">Site de Educação Financeira (Full-Stack)</div>
     </div>
 
-  
-</section>
-
-<!-- CERTIFICAÇÕES -->
-<section class="section_" id="certificacoes">
-    <h2>Certificações</h2>
-
-    <div class="extra-grid">
-        <div class="extra-card">
-            <h3>Geração Tech</h3>
-            <p>Desenvolvimento Full Stack (Front-end e Back-end)</p>
-        </div>
-
-        <div class="extra-card">
-            <h3>Scrum e Metodologias Ágeis</h3>
-            <p>Planejamento, Sprints, Backlog e entrega contínua</p>
-        </div>
-
-        <div class="extra-card">
-            <h3>Python e Desenvolvimento Desktop</h3>
-            <p>Aplicações com Qt e integração de sistemas</p>
-        </div>
-        <div class="extra-card">
-            <h3>Geração Tech</h3>
-            <p>Desenvolvimento Full Stack (Front-end e Back-end)</p>
-        </div>
-
-        <div class="extra-card">
-            <h3>Scrum e Metodologias Ágeis</h3>
-            <p>Planejamento, Sprints, Backlog e entrega contínua</p>
-        </div>
-
-        <div class="extra-card">
-            <h3>Python e Desenvolvimento Desktop</h3>
-            <p>Aplicações com Qt e integração de sistemas</p>
-        </div>
+    <!-- PROJETO 1 -->
+    <div class="project active">
+    <div class="project-card">
+    <div>
+        <h2>Loja Digital (Front-end) - Geração Tech</h2>
+        <div class="periodo">Nov/2024 - Jan/2025</div>
+        <h3>Descrição</h3>
+        <p>Interface front-end de um e-commerce desenvolvida em React, com foco em componentização, navegação fluida e design consistente.</br>
+            Desenvolvido com layouts e componentes reutilizáveis, além de ser aplicado uso de rotas com React Router e filtros de produtos com busca e ordenação.</p>
+        <h3>Tecnologias Usadas</h3>
+        <p>React, React Router, CSS Modules, JavaScript ES6+, Prime React, Prime Flex, Vue, UseEffect, UseComponent, UseState, </p>
+        <h3>Resultado</h3>
+        <p>A aplicação entregou uma interface moderna, organizada e escalável, com componentes reutilizáveis e fácil manutenção. O uso de um layout consistente e rotas bem definidas proporciona uma experiência de usuário fluida, simulando um e-commerce real e preparado para integração com uma API back-end.</p>
     </div>
-</section>
+    <div class="carousel">
+        <img src="https://raw.githubusercontent.com/luiscarlo5/FrontEnd-G3/main/src/assets/print1.jpg" class="active">
 
- <section class="section_" id="projetos-web">
-     <h2>Projetos Web</h2>
-<div class="tabs">
-    <!-- <div class="tab active" onclick="showProject(0)">Projeto 1</div> -->
-    <div class="tab" onclick="showProject(0)">Loja Digital (Front-end)</div>
-    <div class="tab" onclick="showProject(1)">Loja Digital (Back-end)</div>
-    <div class="tab" onclick="showProject(2)">Site de Educação Financeira (Full-Stack)</div>
-</div>
+    </div>
 
-<!-- PROJETO 1 -->
-<div class="project active">
-<div class="project-card">
-<div>
-    <h2>Loja Digital (Front-end) - Geração Tech</h2>
-    <div class="periodo">Nov/2024 - Jan/2025</div>
-    <h3>Descrição</h3>
-    <p>Interface front-end de um e-commerce desenvolvida em React, com foco em componentização, navegação fluida e design consistente.</br>
-        Desenvolvido com layouts e componentes reutilizáveis, além de ser aplicado uso de rotas com React Router e filtros de produtos com busca e ordenação.</p>
-    <h3>Tecnologias Usadas</h3>
-    <p>React, React Router, CSS Modules, JavaScript ES6+, Prime React, Prime Flex, Vue, UseEffect, UseComponent, UseState, </p>
-    <h3>Resultado</h3>
-    <p>A aplicação entregou uma interface moderna, organizada e escalável, com componentes reutilizáveis e fácil manutenção. O uso de um layout consistente e rotas bem definidas proporciona uma experiência de usuário fluida, simulando um e-commerce real e preparado para integração com uma API back-end.</p>
-</div>
-<div class="carousel">
-    <img src="https://raw.githubusercontent.com/luiscarlo5/FrontEnd-G3/main/src/assets/print1.jpg" class="active">
+    </div>
+    </div>
 
-</div>
+    <!-- PROJETO 2 -->
+    <div class="project">
+    <div class="project-card">
+    <div>
+        <h2>Loja Digital (Back-End) - Geração Tech</h2>
+        <div class="periodo">Dez/2024 - Jan/2025</div>
+        <h3>Descrição</h3>
 
-</div>
-</div>
+        <p>API RESTful desenvolvida com Node.js e Express, seguindo arquitetura MVC, focada em segurança, escalabilidade e boas 
+            práticas. O projeto serve como base reutilizável para aplicações profissionais, com autenticação, banco de dados relacional
+            e padronização de endpoints.
 
-<!-- PROJETO 2 -->
-<div class="project">
-<div class="project-card">
-<div>
-    <h2>Loja Digital (Back-End) - Geração Tech</h2>
-    <div class="periodo">Dez/2024 - Jan/2025</div>
-    <h3>Descrição</h3>
+        </br> Estrutura:
+        </br>• Estruturação em MVC
+        </br>• Criação de API REST com Express.js
+        </br>• CRUD de usuários, produtos e categorias
+        </br>• Modelagem de dados com MySQL e Sequelize
+        </br>• Autenticação e autorização com JWT
+        </br>• Criptografia de dados com crypto-js
+        </br>• Configuração de ambiente com dotenv
+        </br>• Padronização de respostas HTTP
+        </p>
 
-     <p>API RESTful desenvolvida com Node.js e Express, seguindo arquitetura MVC, focada em segurança, escalabilidade e boas 
-        práticas. O projeto serve como base reutilizável para aplicações profissionais, com autenticação, banco de dados relacional
-         e padronização de endpoints.
+        <h3>Tecnologias</h3>
+        <p>Node.js, Express, MVC, JWT, MySQL, Sequelize, crypto-js, dotenv</p>
+        <h3>Resultado</h3>
+        <p>Aplicação moderna e escalável, com estrutura organizada e componentes reutilizáveis, preparada para integração com API back-end.</p>
+    </div>
+    <div class="carousel">
+        <!-- <img src="https://media.licdn.com/dms/image/v2/D5612AQGq2VpDubw9pw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1721188761705?e=2147483647&v=beta&t=N963NFdCP3GLx5O-Q6HMwKNPYNQLlcqXNGISjDgcsrw" class="active"> -->
+        <img src="https://www.linkedin.com/dms/prv/image/v2/D4E06AQELjL9k8Yf65g/messaging-image-720/B4EZwVRvlfJgAc-/0/1769883500146?m=AQJXGolf-i4cQgAAAZwVRwqdGkIOO6Q2bN-ZVixSmI9rNUuip_zStZvaCQ&ne=1&v=beta&t=QWt_hmsWGCwnU6bRRzmw7fYpraOBZE9OPamTg56KDNA"  class="active">
+            <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" >
+        <img src="https://furushima.com.br/wp-content/uploads/2025/03/MySQL-Logo.png" > -->
+    </div>
+    </div>
+    </div>
 
-    </br> Estrutura:
-    </br>• Estruturação em MVC
-    </br>• Criação de API REST com Express.js
-    </br>• CRUD de usuários, produtos e categorias
-    </br>• Modelagem de dados com MySQL e Sequelize
-    </br>• Autenticação e autorização com JWT
-    </br>• Criptografia de dados com crypto-js
-    </br>• Configuração de ambiente com dotenv
-    </br>• Padronização de respostas HTTP
-    </p>
-
-    <h3>Tecnologias</h3>
-    <p>Node.js, Express, MVC, JWT, MySQL, Sequelize, crypto-js, dotenv</p>
-    <h3>Resultado</h3>
-    <p>Aplicação moderna e escalável, com estrutura organizada e componentes reutilizáveis, preparada para integração com API back-end.</p>
-</div>
-<div class="carousel">
-    <!-- <img src="https://media.licdn.com/dms/image/v2/D5612AQGq2VpDubw9pw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1721188761705?e=2147483647&v=beta&t=N963NFdCP3GLx5O-Q6HMwKNPYNQLlcqXNGISjDgcsrw" class="active"> -->
-    <img src="https://www.linkedin.com/dms/prv/image/v2/D4E06AQELjL9k8Yf65g/messaging-image-720/B4EZwVRvlfJgAc-/0/1769883500146?m=AQJXGolf-i4cQgAAAZwVRwqdGkIOO6Q2bN-ZVixSmI9rNUuip_zStZvaCQ&ne=1&v=beta&t=QWt_hmsWGCwnU6bRRzmw7fYpraOBZE9OPamTg56KDNA"  class="active">
-        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" >
-    <img src="https://furushima.com.br/wp-content/uploads/2025/03/MySQL-Logo.png" > -->
-</div>
-</div>
-</div>
-
-<!-- PROJETO 2 -->
-<div class="project">
-<div class="project-card">
-<div>
-    <h2>Plataforma Full Stack em Flask - Mandacaru.dev</h2>
-    <div class="periodo">04/2024 - 06/2024</div>
-    <h3>Descrição</h3>
-    <p>Plataforma web de educação financeira desenvolvida como projeto final do módulo Juazeiro do programa Mandacaru.dev. O sistema integra conteúdo educativo, interatividade e análise de dados reais, utilizando metodologia ágil (Scrum) e boas práticas de desenvolvimento full stack, incluindo previsão de inflação por meio de regressão linear.</p>
-    <h3>Tecnologias</h3>
-    <p>HTML, CSS, JavaScript, Python, Flask, SQLite3, SQLAlchemy, Git/GitHub, Trello, Miro.</p>
-    <h3>Resultado</h3>
-    <p>Aplicação web interativa que combina educação financeira, quizzes e visualização de dados, permitindo ao usuário analisar gráficos e obter previsões de inflação para apoiar a tomada de decisões financeiras.</p>
-</div>
-<div class="carousel">
-    <img src="https://i.imgur.com/GE7TRIh.png" class="active" > 
-    <img src="https://i.imgur.com/N8SHa9U.png">
-    <img src="https://i.imgur.com/Gdbylh6.png">
-    <img src="https://i.imgur.com/KWPnlLl.png">
-</div>
-</div>
-</div>
-</section>
+    <!-- PROJETO 2 -->
+    <div class="project">
+    <div class="project-card">
+    <div>
+        <h2>Plataforma Full Stack em Flask - Mandacaru.dev</h2>
+        <div class="periodo">04/2024 - 06/2024</div>
+        <h3>Descrição</h3>
+        <p>Plataforma web de educação financeira desenvolvida como projeto final do módulo Juazeiro do programa Mandacaru.dev. O sistema integra conteúdo educativo, interatividade e análise de dados reais, utilizando metodologia ágil (Scrum) e boas práticas de desenvolvimento full stack, incluindo previsão de inflação por meio de regressão linear.</p>
+        <h3>Tecnologias</h3>
+        <p>HTML, CSS, JavaScript, Python, Flask, SQLite3, SQLAlchemy, Git/GitHub, Trello, Miro.</p>
+        <h3>Resultado</h3>
+        <p>Aplicação web interativa que combina educação financeira, quizzes e visualização de dados, permitindo ao usuário analisar gráficos e obter previsões de inflação para apoiar a tomada de decisões financeiras.</p>
+    </div>
+    <div class="carousel">
+        <img src="https://i.imgur.com/GE7TRIh.png" class="active" > 
+        <img src="https://i.imgur.com/N8SHa9U.png">
+        <img src="https://i.imgur.com/Gdbylh6.png">
+        <img src="https://i.imgur.com/KWPnlLl.png">
+    </div>
+    </div>
+    </div>
+    </section>
 
 
-<footer>
-© 2026 - Luis Carlos
-</footer>
+    <section class="section_" id="projetos-dados">
+        <h2>Projetos em Dados</h2>
+        <div class="tabs">
+            <div class="tab " onclick="showProject2(0)">Gestão de Custos (Excel)</div>
+            <div class="tab" onclick="showProject2(1)">Análise Estatística (R)</div>
+            <div class="tab" onclick="showProject2(2)">Dashboard de Dados Hídricos (Python)</div>
+        </div>
 
-<script>
-function showProject(index) {
-    document.querySelectorAll('.project').forEach((p, i) => {
-        p.classList.toggle('active', i === index);
+        <div class="project2 active">
+            <div class="project-card">
+                <div>
+                    <h2>Cálculo de Custo de Produção em Excel - Restaurante Diraí</h2>
+                    <div class="periodo">jun/2025 - set/2025</div>
+                    <h3>Descrição</h3>
+                    <p>Desenvolvimento de uma ferramenta robusta para gestão financeira e operacional. O foco foi a automação do cálculo do custo de mercadoria vendida (CMV), abrangendo desde insumos de cozinha até itens de embalagem.</p>
+                    <p>• Implementação de tabelas dinâmicas para análise de margem de lucro.</p>
+                    <p>• Uso de macros (VBA) para automação de processos repetitivos.</p>
+                    <p>• Funções avançadas para atualização dinâmica de preços de insumos.</p>
+                    <h3>Tecnologias Usadas</h3>
+                    <p>Microsoft Excel, VBA (Macros), Tabelas Dinâmicas, Fórmulas Avançadas.</p>
+                    <h3>Resultado</h3>
+                    <p>A ferramenta permitiu uma visão real da lucratividade por prato, facilitando o ajuste de preços estratégico e a redução de desperdícios na operação do restaurante.</p>
+                </div>
+                <div class="carousel">
+                    <img src="produtos_finais.png" class="active" alt="produtos finais - tabela">
+                    <img src="produtos_primarios.png" class="active" alt="produtos primarios - tabela">
+                    <img src="tabela_dinamica.png" class="active" alt="Dashboard Excel Diraí">
+                    <!-- <img src="URL_DA_SUA_IMAGEM_AQUI" class="active" alt="Dashboard Excel Diraí"> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="project2">
+            <div class="project-card">
+                <div>
+                    <h2>Análise de Eficácia Vacinal - Engenharia de Computação</h2>
+                    <div class="periodo">Projeto Acadêmico</div>
+                    <h3>Descrição</h3>
+                    <p>Estudo estatístico rigoroso desenvolvido para a disciplina de Estatística e Probabilidade. O objetivo foi validar a eficácia de imunizantes através de métodos científicos e análise computacional.</p>
+                    <p>• Aplicação de Testes de Hipóteses (p-valor, nível de significância).</p>
+                    <p>• Comparação de médias e análise de variância.</p>
+                    <p>• Visualização de distribuições e intervalos de confiança.</p>
+                    <h3>Tecnologias</h3>
+                    <p>Linguagem R, RStudio, ggplot2, Stats Pack.</p>
+                    <h3>Resultado</h3>
+                    <p>Comprovação estatística da eficácia do grupo experimental em relação ao controle, consolidando o aprendizado em inferência estatística aplicada a dados biológicos.</p>
+                </div>
+                <div class="carousel">
+                    <img src="Rplot_dn.png" class="active" alt="Gráficos R">
+                    <img src="Rplot_histNM1.png" class="active" alt="Gráficos R">
+                    <img src="Rplot_histNM3.png" class="active" alt="Gráficos R">
+                    <img src="Rplot_NC3.png" class="active" alt="Gráficos R">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="project2">
+            <div class="project-card">
+                <div>
+                    <h2>Dados Hídricos - Biovalor</h2>
+                    <div class="periodo">Projeto de Dados</div>
+                    <h3>Descrição</h3>
+                    <p>Desenvolvimento de uma solução end-to-end para monitoramento de recursos hídricos. O projeto envolveu desde a criação de massa de dados sintética até a disponibilização de uma interface interativa para o cliente final.</p>
+                    <p>• Geração de dados sintéticos realistas para simulação de cenários.</p>
+                    <p>• Pré-processamento e limpeza de dados com Pandas e Numpy.</p>
+                    <p>• Criação de dashboard interativo para visualização de tendências.</p>
+                    <h3>Tecnologias</h3>
+                    <p>Python, Streamlit, Pandas, Numpy, Seaborn, Matplotlib.</p>
+                    <h3>Resultado</h3>
+                    <p>Entrega de um Web App (Streamlit) funcional que permitiu à Biovalor visualizar métricas críticas de qualidade e volume de água de forma intuitiva e rápida.</p>
+                </div>
+                <div class="carousel">
+                    <img src="Biovalor.png" class="active" alt="Interface Streamlit">
+                    <img src="streamlit.png" class="active" alt="Interface Streamlit">
+                    <img src="streamlit2.png" class="active" alt="Interface Streamlit">
+                    <img src="streamlit_anomalia.png" class="active" alt="Interface Streamlit">
+                    <img src="atlantico.png" class="active" alt="intituto atlantico">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    © 2026 - Luis Carlos - (85) 98843-8013 - luiscarlosengcomp@gmail.com
+    </footer>
+
+    <script>
+    function showProject(index) {
+        document.querySelectorAll('.project').forEach((p, i) => {
+            p.classList.toggle('active', i === index);
+        });
+
+        document.querySelectorAll('.tab').forEach((t, i) => {
+            t.classList.toggle('active', i === index);
+        });
+    }
+
+    function showProject2(index) {
+        document.querySelectorAll('.project2').forEach((p, i) => {
+            p.classList.toggle('active', i === index);
+        });
+
+        document.querySelectorAll('.tab').forEach((t, i) => {
+            t.classList.toggle('active', i === index);
+        });
+    }
+
+
+    function showExp(index) {
+        document.querySelectorAll('.exp-content').forEach((c, i) => {
+            c.classList.toggle('active', i === index);
+        });
+
+        document.querySelectorAll('.exp-tab').forEach((t, i) => {
+            t.classList.toggle('active', i === index);
+        });
+    }
+
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const imgs = carousel.querySelectorAll('img');
+        let i = 0;
+        setInterval(() => {
+            imgs[i].classList.remove('active');
+            i = (i + 1) % imgs.length;
+            imgs[i].classList.add('active');
+        }, 3000);
     });
 
-    document.querySelectorAll('.tab').forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-    });
-}
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
 
-function showExp(index) {
-    document.querySelectorAll('.exp-content').forEach((c, i) => {
-        c.classList.toggle('active', i === index);
-    });
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
 
-    document.querySelectorAll('.exp-tab').forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-    });
-}
-
-
-document.querySelectorAll('.carousel').forEach(carousel => {
-    const imgs = carousel.querySelectorAll('img');
-    let i = 0;
-    setInterval(() => {
-        imgs[i].classList.remove('active');
-        i = (i + 1) % imgs.length;
-        imgs[i].classList.add('active');
-    }, 3000);
-});
-
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
     });
-});
 
-</script>
+    </script>
 
-</body>
-</html>
+    </body>
+    </html>
